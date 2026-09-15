@@ -268,20 +268,15 @@ LED/Buzzer functions – Examination status indication
 
 ## Technologies Used
 
-#### Microcontroller: 
-LPC2148 ARM7
+Microcontroller: LPC2148 ARM7
 
-#### Programming Language:
-Embedded C
+Programming Language: Embedded C
 
-#### Development IDE:
-Keil µVision
+Development IDE: Keil µVision
 
-#### Programming Tool:
-Flash Magic
+Programming Tool: Flash Magic
 
-#### Core Concepts:
-GPIO, ADC, RTC, Timers, External Interrupts, Peripheral Interfacing
+Core Concepts: GPIO, ADC, RTC, Timers, External Interrupts, Peripheral Interfacing
 
 ## Applications
 
