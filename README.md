@@ -11,40 +11,26 @@ Automate examination timing and countdown management, display current time and r
 
 ## Hardware Requirements
 
--LPC2148 ARM7 Microcontroller 
-
--16×2 LCD
-
--4×4 Matrix Keypad 
-
--RTC 
-
--LM35 Temperature Sensor 
-
--Two 7-Segment Displays
-
--Green, Yellow & Red Led's
-
--Buzzer
-
--Switches
-
--USB-UART / DB-9 interface
-
--5V DC Power Supply
+- LPC2148 ARM7 Microcontroller
+- 16×2 LCD
+- 4×4 Matrix Keypad
+- RTC
+- LM35 Temperature Sensor
+- Two 7-Segment Displays
+- Green, Yellow & Red LEDs
+- Buzzer
+- Switches
+- USB-UART / DB-9 Interface
+- 5V DC Power Supply
 
 ## Software Requirements
 
--Embedded C
-
--Keil µVision
-
--Flash Magic
-
--LPC2148 / ARM7 Development Environment
+• Embedded C    
+• Keil µVision    
+• Flash Magic  
+• LPC2148 / ARM7 Development Environment
 
 ## System Block Diagram
-
 <img width="2000" height="1150" alt="image" src="https://github.com/user-attachments/assets/693d9fab-b859-4427-9637-ef3b2a441767" />
 
 ## System Working 
