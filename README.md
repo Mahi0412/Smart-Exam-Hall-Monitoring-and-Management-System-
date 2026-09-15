@@ -3,15 +3,11 @@
 LPC2148-based Smart Exam Hall Monitoring and Management System that automates examination timing, RTC-based scheduling, temperature monitoring, countdown management, secure configuration, pause/resume control, and visual and audible alerts, reducing manual intervention and improving exam management efficiency.
 ## Project Overview
 
-The Smart Exam Hall Monitoring and Management System is an LPC2148 ARM7-based embedded system developed using Embedded C to automate examination timing and monitoring.
-
-The system provides RTC-based time management, configurable examination settings, temperature monitoring, countdown display, password-protected configuration, pause/resume control, percentage-based LED status indication, and buzzer alerts.
-
-The project demonstrates practical implementation of microcontroller interfacing, peripheral control, timers, ADC, RTC, external interrupts, and modular Embedded C programming.
+The Smart Exam Hall Monitoring and Management System is an LPC2148 ARM7-based embedded system developed using Embedded C to automate examination timing and monitoring. The system provides RTC-based time management, configurable examination settings, temperature monitoring, countdown display, password-protected configuration, pause/resume control, percentage-based LED status indication, and buzzer alerts. The project demonstrates practical implementation of microcontroller interfacing, peripheral control, timers, ADC, RTC, external interrupts, and modular Embedded C programming.
 
 ## Objectives
 
-Automate examination timing and countdown management, display current time and room temperature on the LCD, Configure examination start time and duration using a 4×4 keypad, provide password-protected access to configuration settings.Display remaining examination time using multiplexed 7-segment displays.Monitor room temperature using the LM35 sensor,provide percentage-based examination status using Green, Yellow, and Red LEDs.Implement pause and resume functionality using an external interrupt,record examination start and end times using the RTC,provide a buzzer indication during the final stage of the examination and reduce manual timing errors and intervention.
+Automate examination timing and countdown management, display current time and room temperature on the LCD, Configure examination start time and duration using a 4×4 keypad, provide password-protected access to configuration settings. Display remaining examination time using multiplexed 7-segment displays. Monitor room temperature using the LM35 sensor,provide percentage-based examination status using Green, Yellow, and Red LEDs. Implement pause and resume functionality using an external interrupt,record examination start and end times using the RTC,provide a buzzer indication during the final stage of the examination and reduce manual timing errors and intervention.
 
 ## Hardware Requirements
 
