@@ -157,7 +157,42 @@ Provides visual and audible examination status indications based on the remainin
 ## Project Workflow
 
 The basic project flow is:
-<img width="800" height="1000" alt="image" src="https://github.com/user-attachments/assets/dc1513e7-8b5a-4519-840b-f73e05e1630b" />
+```
+Power ON
+   ↓
+Initialize LPC2148 Peripherals
+   ↓
+Display RTC Time & Temperature
+   ↓
+Admin / Configuration
+   ↓
+Enter Password
+   ↓
+Password Valid?
+   ├── No → Wrong Password → Return to Normal Mode
+   │
+   └── Yes → Access Granted
+              ↓
+       Configure RTC / Exam Time / Duration
+              ↓
+       Wait for Configured Start Time
+              ↓
+       Start Examination
+              ↓
+       Start Countdown Timer
+              ↓
+       Display Remaining Time
+              ↓
+       Green / Yellow / Red LED Status
+              ↓
+       Pause / Resume if Required
+              ↓
+       Countdown Reaches Zero
+              ↓
+       LEDs & Buzzer OFF
+              ↓
+       Examination Complete
+```
 
 ## Key Features
 
