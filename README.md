@@ -11,27 +11,7 @@ The project demonstrates practical implementation of microcontroller interfacing
 
 ## Objectives
 
-Automate examination timing and countdown management.
-
-Display current time and room temperature on the LCD.
-
-Configure examination start time and duration using a 4×4 keypad.
-
-Provide password-protected access to configuration settings.
-
-Display remaining examination time using multiplexed 7-segment displays.
-
-Monitor room temperature using the LM35 sensor.
-
-Provide percentage-based examination status using Green, Yellow, and Red LEDs.
-
-Implement pause and resume functionality using an external interrupt.
-
-Record examination start and end times using the RTC.
-
-Provide a buzzer indication during the final stage of the examination.
-
-Reduce manual timing errors and intervention.
+Automate examination timing and countdown management, display current time and room temperature on the LCD, Configure examination start time and duration using a 4×4 keypad, provide password-protected access to configuration settings.Display remaining examination time using multiplexed 7-segment displays.Monitor room temperature using the LM35 sensor,provide percentage-based examination status using Green, Yellow, and Red LEDs.Implement pause and resume functionality using an external interrupt,record examination start and end times using the RTC,provide a buzzer indication during the final stage of the examination and reduce manual timing errors and intervention.
 
 ## Hardware Requirements
 
@@ -177,52 +157,7 @@ Provides visual and audible examination status indications based on the remainin
 ## Project Workflow
 
 The basic project flow is:
-
-Power ON
-
-   ↓
-   
-Initialize Peripherals
-
-   ↓
-   
-Monitor RTC & Temperature
-
-   ↓
-   
-Configure Examination
-
-   ↓
-   
-Wait for Start Time
-
-   ↓
-   
-Start Examination
-
-   ↓
-   
-Countdown & Display
-
-   ↓
-   
-LED / Buzzer Status
-
-   ↓
-   
-Pause / Resume if Required
-
-   ↓
-   
-Countdown = 0
-
-   ↓
-   
-Record End Time
-
-   ↓
-   
-Examination Complete
+<img width="1000" height="1400" alt="image" src="https://github.com/user-attachments/assets/dc1513e7-8b5a-4519-840b-f73e05e1630b" />
 
 ## Key Features
 
