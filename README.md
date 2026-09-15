@@ -30,6 +30,14 @@ Automate examination timing and countdown management while displaying the curren
 - Flash Magic
 - LPC2148 / ARM7 Development Environment
 
+## Technologies Used
+
+- **Microcontroller**: LPC2148 ARM7
+- **Programming Language**: Embedded C
+- **Development IDE**: Keil µVision
+- **Programming Tool**: Flash Magic
+- **Core Concepts**: GPIO, ADC, RTC, Timers, External Interrupts, Peripheral Interfacing
+
 ## System Block Diagram
 <img width="2000" height="1150" alt="image" src="https://github.com/user-attachments/assets/693d9fab-b859-4427-9637-ef3b2a441767" />
 
@@ -112,44 +120,6 @@ At 0%: All LEDs and the buzzer are turned OFF.
 
 This provides a clear visual and audible indication of the remaining examination time.
 
-## Main Modules
-
-#### 1. LPC2148 Microcontroller
-
-Main controller responsible for coordinating the complete system and controlling all connected peripherals.
-
-#### 2. RTC Module
-
-Handles real-time date and time information and supports examination start and end time recording.
-
-#### 3. LCD Module
-
-Displays time, temperature, configuration messages, and other system information.
-
-#### 4. Keypad Module
-
-Provides password input and examination configuration through the 4×4 matrix keypad.
-
-#### 5. LM35 and ADC Module
-
-The LM35 provides the temperature input, which is processed using the ADC and displayed on the LCD.
-
-#### 6. Timer Module
-
-Handles the examination countdown and timing operations.
-
-#### 7. 7-Segment Module
-
-Displays the remaining examination time using two multiplexed 7-segment displays.
-
-#### 8. External Interrupt Module
-
-Handles configuration access and pause/resume operations.
-
-#### 9. LED and Buzzer Module
-
-Provides visual and audible examination status indications based on the remaining examination percentage.
-
 ## Project Workflow
 
 The basic project flow is:
@@ -192,87 +162,18 @@ Password Valid?
 
 ## Features
 
-- RTC-based examination timing
-
-- Configurable examination duration
-
-- Password-protected configuration
-
-- Real-time temperature monitoring
-
-- Multiplexed countdown display
-
-- Percentage-based LED indication
-
-- Final-stage buzzer alert
-
-- Interrupt-based pause/resume
-
-- Examination start/end time recording
-
-## Embedded C Modules
-
-The firmware can be organized into separate modules for better readability and maintainability.
-
-- main.c – Main application and system control
-
-- lcd.c / lcd.h – LCD functions
-
-- keypad.c / keypad.h – Keypad scanning and input
-
-- rtc.c / rtc.h – RTC operations
-
-- adc.c / adc.h – ADC and temperature measurement
-
-- timer.c / timer.h – Timer and countdown operations
-
-- seven_segment.c / seven_segment.h – 7-segment display control
-
-- interrupt.c / interrupt.h – External interrupt handling
-
-- LED/Buzzer functions – Examination status indication
-
-## Technologies Used
-
-- Microcontroller: LPC2148 ARM7
-
-- Programming Language: Embedded C
-
-- Development IDE: Keil µVision
-
-- Programming Tool: Flash Magic
-
-- Core Concepts: GPIO, ADC, RTC, Timers, External Interrupts, Peripheral Interfacing
-
-## Applications
-
-- Schools and Colleges
-
-- Universities
-
-- Examination Centers
-
-- Training and Certification Centers
-
-- Competitive Examination Halls
-
-- Computer-Based Examination Environments
+- **RTC-Based Examination Timing**- Accurate start-time and countdown management.
+- **Password-Protected Configuration**- Secure access to examination settings.
+- **Real-Time Temperature Monitoring**- LM35-based room temperature monitoring.
+- **Multiplexed Countdown & LED Indication**- Remaining time displayed with percentage-based Green, Yellow, and Red status LEDs.
+- **Pause/Resume with Buzzer Alert**- Interrupt-based timer control with a buzzer alert during the final stage.
 
 ## Future Enhancements
 
-- The system can be further enhanced with:
+The system can be further enhanced with:
 
-- Examination data logging using EEPROM/external memory
-
-- PC-based monitoring and report generation
-
-- Centralized monitoring of multiple examination halls
-
-- Remote monitoring through networking/IoT
-
-- Attendance system integration
-
-- Additional environmental sensors
-
-- Enhanced authentication and security
-
+- Examination Data Logging 
+- PC-Based Monitoring & Reporting 
+- Multi-Hall Monitoring 
+- IoT-Based Remote Monitoring 
+- Enhanced Security & Attendance 
