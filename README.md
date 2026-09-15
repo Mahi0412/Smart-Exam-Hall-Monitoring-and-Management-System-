@@ -11,37 +11,37 @@ Automate examination timing and countdown management, display current time and r
 
 ## Hardware Requirements
 
-LPC2148 ARM7 Microcontroller 
+-LPC2148 ARM7 Microcontroller 
 
-16×2 LCD
+-16×2 LCD
 
-4×4 Matrix Keypad 
+-4×4 Matrix Keypad 
 
-RTC 
+-RTC 
 
-LM35 Temperature Sensor 
+-LM35 Temperature Sensor 
 
-Two 7-Segment Displays
+-Two 7-Segment Displays
 
-Green, Yellow & Red Led's
+-Green, Yellow & Red Led's
 
-Buzzer
+-Buzzer
 
-Switches
+-Switches
 
-USB-UART / DB-9 interface
+-USB-UART / DB-9 interface
 
-5V DC Power Supply
+-5V DC Power Supply
 
 ## Software Requirements
 
-Embedded C
+-Embedded C
 
-Keil µVision
+-Keil µVision
 
-Flash Magic
+-Flash Magic
 
-LPC2148 / ARM7 Development Environment
+-LPC2148 / ARM7 Development Environment
 
 ## System Block Diagram
 
@@ -190,59 +190,59 @@ Password Valid?
        Examination Complete
 ```
 
-## Key Features
+## Features
 
-RTC-based examination timing
+-RTC-based examination timing
 
-Configurable examination duration
+-Configurable examination duration
 
-Password-protected configuration
+-Password-protected configuration
 
-Real-time temperature monitoring
+-Real-time temperature monitoring
 
-Multiplexed countdown display
+-Multiplexed countdown display
 
-Percentage-based LED indication
+-Percentage-based LED indication
 
-Final-stage buzzer alert
+-Final-stage buzzer alert
 
-Interrupt-based pause/resume
+-Interrupt-based pause/resume
 
-Examination start/end time recording
+-Examination start/end time recording
 
 ## Embedded C Modules
 
 The firmware can be organized into separate modules for better readability and maintainability.
 
-main.c – Main application and system control
+-main.c – Main application and system control
 
-lcd.c / lcd.h – LCD functions
+-lcd.c / lcd.h – LCD functions
 
-keypad.c / keypad.h – Keypad scanning and input
+-keypad.c / keypad.h – Keypad scanning and input
 
-rtc.c / rtc.h – RTC operations
+-rtc.c / rtc.h – RTC operations
 
-adc.c / adc.h – ADC and temperature measurement
+-adc.c / adc.h – ADC and temperature measurement
 
-timer.c / timer.h – Timer and countdown operations
+-timer.c / timer.h – Timer and countdown operations
 
-seven_segment.c / seven_segment.h – 7-segment display control
+-seven_segment.c / seven_segment.h – 7-segment display control
 
-interrupt.c / interrupt.h – External interrupt handling
+-interrupt.c / interrupt.h – External interrupt handling
 
-LED/Buzzer functions – Examination status indication
+-LED/Buzzer functions – Examination status indication
 
 ## Technologies Used
 
-Microcontroller: LPC2148 ARM7
+-Microcontroller: LPC2148 ARM7
 
-Programming Language: Embedded C
+-Programming Language: Embedded C
 
-Development IDE: Keil µVision
+-Development IDE: Keil µVision
 
-Programming Tool: Flash Magic
+-Programming Tool: Flash Magic
 
-Core Concepts: GPIO, ADC, RTC, Timers, External Interrupts, Peripheral Interfacing
+-Core Concepts: GPIO, ADC, RTC, Timers, External Interrupts, Peripheral Interfacing
 
 ## Applications
 
