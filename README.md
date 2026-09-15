@@ -7,7 +7,7 @@ The Smart Exam Hall Monitoring and Management System is an LPC2148 ARM7-based em
 
 ## Objectives
 
-Automate examination timing and countdown management, display current time and room temperature on the LCD, Configure examination start time and duration using a 4×4 keypad, provide password-protected access to configuration settings. Display remaining examination time using multiplexed 7-segment displays. Monitor room temperature using the LM35 sensor,provide percentage-based examination status using Green, Yellow, and Red LEDs. Implement pause and resume functionality using an external interrupt,record examination start and end times using the RTC,provide a buzzer indication during the final stage of the examination and reduce manual timing errors and intervention.
+Automate examination timing and countdown management while displaying the current time and room temperature on the LCD. Configure examination start time and duration using a password-protected 4×4 keypad interface, display remaining time on a multiplexed 2-digit 7-segment display, and monitor temperature using the LM35 sensor. Indicate examination status using Green, Yellow, and Red LEDs, support pause and resume through an external interrupt, and provide a buzzer alert during the final stage to reduce manual timing errors and intervention.
 
 ## Hardware Requirements
 
@@ -25,13 +25,27 @@ Automate examination timing and countdown management, display current time and r
 
 ## Software Requirements
 
-• Embedded C    
-• Keil µVision    
-• Flash Magic  
-• LPC2148 / ARM7 Development Environment
+- Embedded C
+- Keil µVision
+- Flash Magic
+- LPC2148 / ARM7 Development Environment
 
 ## System Block Diagram
 <img width="2000" height="1150" alt="image" src="https://github.com/user-attachments/assets/693d9fab-b859-4427-9637-ef3b2a441767" />
+
+## Pin Configuration
+| Signal           | Pin                | Description          |
+| ---------------- | ------------------ | -------------------- |
+| LCD Data         | P0.8 – P0.15       | 8-bit data           |
+| LCD RS / EN      | P0.16 / P0.17      | LCD control          |
+| Keypad           | P1.16 – P1.23      | 4×4 key input        |
+| 7-Segment Data   | P1.24 – P1.31      | Segment data         |
+| 7-Segment Select | P0.20 / P0.21      | Digit 1 / Digit 2    |
+| Status LEDs      | P0.2 / P0.3 / P0.4 | Green / Yellow / Red |
+| Pause LED        | P0.25              | Pause indication     |
+| Buzzer           | P0.23              | Final-stage alert    |
+| LM35             | P0.28              | Temperature input    |
+| Interrupts       | P0.1 / P0.7        | Admin / Pause-Resume |
 
 ## System Working 
 
@@ -178,87 +192,87 @@ Password Valid?
 
 ## Features
 
--RTC-based examination timing
+- RTC-based examination timing
 
--Configurable examination duration
+- Configurable examination duration
 
--Password-protected configuration
+- Password-protected configuration
 
--Real-time temperature monitoring
+- Real-time temperature monitoring
 
--Multiplexed countdown display
+- Multiplexed countdown display
 
--Percentage-based LED indication
+- Percentage-based LED indication
 
--Final-stage buzzer alert
+- Final-stage buzzer alert
 
--Interrupt-based pause/resume
+- Interrupt-based pause/resume
 
--Examination start/end time recording
+- Examination start/end time recording
 
 ## Embedded C Modules
 
 The firmware can be organized into separate modules for better readability and maintainability.
 
--main.c – Main application and system control
+- main.c – Main application and system control
 
--lcd.c / lcd.h – LCD functions
+- lcd.c / lcd.h – LCD functions
 
--keypad.c / keypad.h – Keypad scanning and input
+- keypad.c / keypad.h – Keypad scanning and input
 
--rtc.c / rtc.h – RTC operations
+- rtc.c / rtc.h – RTC operations
 
--adc.c / adc.h – ADC and temperature measurement
+- adc.c / adc.h – ADC and temperature measurement
 
--timer.c / timer.h – Timer and countdown operations
+- timer.c / timer.h – Timer and countdown operations
 
--seven_segment.c / seven_segment.h – 7-segment display control
+- seven_segment.c / seven_segment.h – 7-segment display control
 
--interrupt.c / interrupt.h – External interrupt handling
+- interrupt.c / interrupt.h – External interrupt handling
 
--LED/Buzzer functions – Examination status indication
+- LED/Buzzer functions – Examination status indication
 
 ## Technologies Used
 
--Microcontroller: LPC2148 ARM7
+- Microcontroller: LPC2148 ARM7
 
--Programming Language: Embedded C
+- Programming Language: Embedded C
 
--Development IDE: Keil µVision
+- Development IDE: Keil µVision
 
--Programming Tool: Flash Magic
+- Programming Tool: Flash Magic
 
--Core Concepts: GPIO, ADC, RTC, Timers, External Interrupts, Peripheral Interfacing
+- Core Concepts: GPIO, ADC, RTC, Timers, External Interrupts, Peripheral Interfacing
 
 ## Applications
 
-Schools and Colleges
+- Schools and Colleges
 
-Universities
+- Universities
 
-Examination Centers
+- Examination Centers
 
-Training and Certification Centers
+- Training and Certification Centers
 
-Competitive Examination Halls
+- Competitive Examination Halls
 
-Computer-Based Examination Environments
+- Computer-Based Examination Environments
 
-## Future Scope
+## Future Enhancements
 
-The system can be further enhanced with:
+- The system can be further enhanced with:
 
-Examination data logging using EEPROM/external memory
+- Examination data logging using EEPROM/external memory
 
-PC-based monitoring and report generation
+- PC-based monitoring and report generation
 
-Centralized monitoring of multiple examination halls
+- Centralized monitoring of multiple examination halls
 
-Remote monitoring through networking/IoT
+- Remote monitoring through networking/IoT
 
-Attendance system integration
+- Attendance system integration
 
-Additional environmental sensors
+- Additional environmental sensors
 
-Enhanced authentication and security
+- Enhanced authentication and security
 
