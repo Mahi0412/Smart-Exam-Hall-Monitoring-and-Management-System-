@@ -5,10 +5,6 @@ LPC2148-based Smart Exam Hall Monitoring and Management System that automates ex
 
 The Smart Exam Hall Monitoring and Management System is an LPC2148 ARM7-based embedded system developed using Embedded C to automate examination timing and monitoring. The system provides RTC-based time management, configurable examination settings, temperature monitoring, countdown display, password-protected configuration, pause/resume control, percentage-based LED status indication, and buzzer alerts. The project demonstrates practical implementation of microcontroller interfacing, peripheral control, timers, ADC, RTC, external interrupts, and modular Embedded C programming.
 
-## Objectives
-
-Automate examination timing and countdown management while displaying the current time and room temperature on the LCD. Configure examination start time and duration using a password-protected 4×4 keypad interface, display remaining time on a multiplexed 2-digit 7-segment display, and monitor temperature using the LM35 sensor. Indicate examination status using Green, Yellow, and Red LEDs, support pause and resume through an external interrupt, and provide a buzzer alert during the final stage to reduce manual timing errors and intervention.
-
 ## Features
 
 - #### RTC-Based Examination Timing :
@@ -43,14 +39,6 @@ Automate examination timing and countdown management while displaying the curren
 - Flash Magic
 - LPC2148 / ARM7 Development Environment
 
-## Technologies Used
-
-- **Microcontroller**: LPC2148 ARM7
-- **Programming Language**: Embedded C
-- **Development IDE**: Keil µVision
-- **Programming Tool**: Flash Magic
-- **Core Concepts**: GPIO, ADC, RTC, Timers, External Interrupts, Peripheral Interfacing
-
 ## System Block Diagram
 <img width="2000" height="1150" alt="image" src="https://github.com/user-attachments/assets/693d9fab-b859-4427-9637-ef3b2a441767" />
 
@@ -66,70 +54,75 @@ Automate examination timing and countdown management while displaying the curren
 | Pause LED        | P0.25              | Pause indication     |
 | Buzzer           | P0.23              | Final-stage alert    |
 | LM35             | P0.28              | Temperature input    |
-| Interrupts       | P0.1 / P0.7        | Admin / Pause-Resume |
+| Interrupts       | P0.1 / P0.7        | Admin / Pause-Resume | 
 
-## System Working 
+## System Architecture
+
+The firmware is organized into modular source and header files, with each module handling a specific system function.
+```
+├── main_pro.c              # Main program and system initialization
+├── interrupt_p.c/h         # External interrupt handling
+├── rtc_mpt.c/h             # RTC initialization and operation
+├── rtc_edit.c              # RTC configuration
+├── kpm_mp.c/h              # 4×4 keypad scanning and input handling
+├── lcd_t.c/h               # LCD driver
+├── lcd_defines_t.h         # LCD definitions
+├── adc_mpt.c/h             # ADC driver
+├── adc_defines_mpt.h       # ADC definitions
+├── lm35_mpt.c/h            # LM35 temperature measurement
+├── led_mpt.c/h             # LED status control
+├── buzzer_mpt.c/h          # Buzzer control
+├── 7seg_mpt.c/h            # Multiplexed 7-segment display
+├── timer.c/h               # Countdown timer control
+├── delay.c/h               # Delay routines
+├── types_t.h               # Type definitions
+└── defines.h               # Common bit definitions and macros
+```
+## System Working
 
 #### 1. System Initialization
-
 After power ON, the LPC2148 initializes the required peripherals such as LCD, RTC, keypad, ADC, timer, 7-segment display, LEDs, buzzer, and external interrupts.
 
 #### 2. Normal Monitoring
-
 The system continuously reads the RTC and LM35 sensor.
-
 The LCD displays the current time and room temperature while the system waits for examination configuration or the configured examination start time.
 
 #### 3. Examination Configuration
-
-Switch 1 is used to enter the configuration mode through External Interrupt 0.
-
+Switch 1 is used to enter configuration mode through External Interrupt 0.
 The administrator must enter the correct password using the keypad.
-
 After successful authentication, the following settings can be configured:
-
-RTC date and time
-Examination start time
-Examination duration
+-RTC date and time
+-Examination start time
+-Examination duration
 
 #### 4. Examination Start
-
-When the configured examination start time is reached, the system records the examination start time and starts the countdown.
-
-The remaining examination time is displayed on the 7-segment displays.
+When the configured examination start time is reached, the examination countdown begins.
+The remaining examination time is displayed on the multiplexed 2-digit 7-segment display.
 
 #### 5. Countdown
-
 The examination countdown is continuously updated according to the configured examination duration.
-
-The LCD continues to display system information while the 7-segment displays provide the remaining examination time.
+The LCD continues to display system information while the 7-segment display provides the remaining examination time.
 
 #### 6. Pause and Resume
-
 Switch 2 is connected to External Interrupt 1.
-
-First press → Countdown pauses.
-Second press → Countdown resumes.
-
+-First press → Countdown pauses.
+-Second press → Countdown resumes.
 The examination continues from the remaining time at which it was paused.
 
 #### 7. Examination Completion
+When the countdown reaches zero, the LEDs and buzzer are turned OFF and the examination is completed.
+LED and Buzzer Status
+The LED and buzzer status is determined based on the percentage of examination time remaining.
 
-When the countdown reaches zero, the examination end time is recorded using the RTC and the examination completion indication is generated.
+-More than 50%: Green LED ON
 
-### LED and Buzzer Status
+-More than 30% and up to 50%: Yellow LED ON
 
-The system determines the LED and buzzer status based on the percentage of examination time remaining.
+-More than 10% and up to 30%: Red LED ON
 
-More than 50%: Green LED is ON.
+-More than 0% and up to 10%: Red LED blinks and buzzer operates intermittently
 
-More than 30% and up to 50%: Yellow LED is ON.
-
-More than 10% and up to 30%: Red LED is ON.
-
-More than 0% and up to 10%: Red LED blinks and the buzzer turns ON/OFF repeatedly.
-
-At 0%: All LEDs and the buzzer are turned OFF.
+-0%: All LEDs and buzzer OFF
 
 This provides a clear visual and audible indication of the remaining examination time.
 
@@ -143,35 +136,46 @@ Initialize LPC2148 Peripherals
    ↓
 Display RTC Time & Temperature
    ↓
-Admin / Configuration
+Normal Monitoring
+   ↓
+External Interrupt 0
    ↓
 Enter Password
    ↓
-Password Valid?
-   ├── No → Wrong Password → Return to Normal Mode
+Password Correct?
+   ├── No → Wrong Password → Normal Monitoring
    │
    └── Yes → Access Granted
               ↓
-       Configure RTC / Exam Time / Duration
+       Set RTC Date & Time
               ↓
-       Wait for Configured Start Time
+       Set Exam Start Time & Duration
               ↓
-       Start Examination
+       Wait for Start Time
               ↓
-       Start Countdown Timer
+       Examination Starts
+              ↓
+       Start Countdown
               ↓
        Display Remaining Time
               ↓
-       Green / Yellow / Red LED Status
+       LED Status Based on Time %
               ↓
        Pause / Resume if Required
               ↓
        Countdown Reaches Zero
               ↓
-       LEDs & Buzzer OFF
+       Buzzer & LEDs OFF
               ↓
        Examination Complete
 ```
+## Development Tools & Environment
+
+- **Microcontroller**: LPC2148 ARM7
+- **Programming Language**: Embedded C
+- **Development IDE**: Keil µVision
+- **Programming Tool**: Flash Magic
+- **Core Concepts**: GPIO, ADC, RTC, Timers, External Interrupts, Peripheral Interfacing
 
 ## Future Enhancements
 
