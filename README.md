@@ -9,6 +9,19 @@ The Smart Exam Hall Monitoring and Management System is an LPC2148 ARM7-based em
 
 Automate examination timing and countdown management while displaying the current time and room temperature on the LCD. Configure examination start time and duration using a password-protected 4×4 keypad interface, display remaining time on a multiplexed 2-digit 7-segment display, and monitor temperature using the LM35 sensor. Indicate examination status using Green, Yellow, and Red LEDs, support pause and resume through an external interrupt, and provide a buzzer alert during the final stage to reduce manual timing errors and intervention.
 
+## Features
+
+- #### RTC-Based Examination Timing :
+  Accurate start-time and countdown management.
+- #### Password-Protected Configuration :
+  Secure access to examination settings.
+- #### Real-Time Temperature Monitoring :
+  LM35-based room temperature monitoring.
+- #### Multiplexed Countdown & LED Indication :
+  Remaining time displayed with percentage-based Green, Yellow, and Red status LEDs.
+- #### Pause/Resume with Buzzer Alert :
+  Interrupt-based timer control with a buzzer alert during the final stage.
+
 ## Hardware Requirements
 
 - LPC2148 ARM7 Microcontroller
@@ -159,14 +172,6 @@ Password Valid?
               ↓
        Examination Complete
 ```
-
-## Features
-
-- **RTC-Based Examination Timing**- Accurate start-time and countdown management.
-- **Password-Protected Configuration**- Secure access to examination settings.
-- **Real-Time Temperature Monitoring**- LM35-based room temperature monitoring.
-- **Multiplexed Countdown & LED Indication**- Remaining time displayed with percentage-based Green, Yellow, and Red status LEDs.
-- **Pause/Resume with Buzzer Alert**- Interrupt-based timer control with a buzzer alert during the final stage.
 
 ## Future Enhancements
 
