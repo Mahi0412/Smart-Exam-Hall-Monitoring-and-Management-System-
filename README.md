@@ -157,7 +157,7 @@ Provides visual and audible examination status indications based on the remainin
 ## Project Workflow
 
 The basic project flow is:
-<img width="1000" height="1400" alt="image" src="https://github.com/user-attachments/assets/dc1513e7-8b5a-4519-840b-f73e05e1630b" />
+<img width="800" height="1000" alt="image" src="https://github.com/user-attachments/assets/dc1513e7-8b5a-4519-840b-f73e05e1630b" />
 
 ## Key Features
 
