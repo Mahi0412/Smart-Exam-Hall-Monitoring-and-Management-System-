@@ -1,9 +1,13 @@
 # Smart-Exam-Hall-Monitoring-and-Management-System-
 
 LPC2148-based Smart Exam Hall Monitoring and Management System that automates examination timing, RTC-based scheduling, temperature monitoring, countdown management, secure configuration, pause/resume control, and visual and audible alerts, reducing manual intervention and improving exam management efficiency.
-## Project Overview
+## Overview
 
 The Smart Exam Hall Monitoring and Management System is an LPC2148 ARM7-based embedded system developed using Embedded C to automate examination timing and monitoring. The system provides RTC-based time management, configurable examination settings, temperature monitoring, countdown display, password-protected configuration, pause/resume control, percentage-based LED status indication, and buzzer alerts. The project demonstrates practical implementation of microcontroller interfacing, peripheral control, timers, ADC, RTC, external interrupts, and modular Embedded C programming.
+
+## Objective
+
+To automate and manage examination timing through an LPC2148-based embedded system, providing accurate countdown, real-time monitoring, and visual and audible alerts with minimal manual intervention.
 
 ## Features
 
@@ -69,7 +73,7 @@ The firmware is organized into modular source and header files, with each module
 ## System Working
 
 #### 1. System Initialization
-After power ON, the LPC2148 initializes the required peripherals such as LCD, RTC, keypad, ADC, timer, 7-segment display, LEDs, buzzer, and external interrupts.
+After power ON, the LPC2148 ARM7 microcontroller, which acts as the main controller initializes the required peripherals such as LCD, RTC, keypad, ADC, timer, 7-segment display, LEDs, buzzer, and external interrupts.
 
 #### 2. Normal Monitoring
 The system continuously reads the RTC and LM35 sensor.
@@ -126,7 +130,7 @@ Display RTC Time & Temperature
    ↓
 Normal Monitoring
    ↓
-External Interrupt 0
+External Interrupt 0(EINT0)
    ↓
 Enter Password
    ↓
@@ -147,9 +151,9 @@ Password Correct?
               ↓
        Display Remaining Time
               ↓
-       LED Status Based on Time %
+       Update LED and Buzzer Status Based on Time %
               ↓
-       Pause / Resume if Required
+       Pause / Resume if Required(EINT1)
               ↓
        Countdown Reaches Zero
               ↓
@@ -173,4 +177,8 @@ The system can be further enhanced with:
 - PC-Based Monitoring & Reporting 
 - Multi-Hall Monitoring 
 - IoT-Based Remote Monitoring 
-- Enhanced Security & Attendance 
+- Enhanced Security & Attendance
+  
+## Developed By
+Tekula Srimahi
+**Project**:Smart Exam Hall Monitoring and Management System.
