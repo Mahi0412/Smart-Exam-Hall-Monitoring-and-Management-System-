@@ -182,4 +182,4 @@ The system can be further enhanced with:
 ## Developed By
 Tekula Srimahi
 
-**Project**:Smart Exam Hall Monitoring and Management System.
+**Project**: Smart Exam Hall Monitoring and Management System.
